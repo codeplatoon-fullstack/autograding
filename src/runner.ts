@@ -42,10 +42,8 @@ export class TestOutputError extends TestError {
   actual: string
 
   constructor(message: string, expected: string, actual: string) {
-    log(indent('\n'))
     super(`\n${message}`)
-    log(indent('\n'))
-    log(`\nExpected:\n${expected}\n\nActual:\n${actual}`)
+    log(indent(`\nExpected:\n${expected}\n\nActual:\n${actual}`))
     this.expected = expected
     this.actual = actual
 
