@@ -12486,6 +12486,7 @@ const color = new chalk_1.default.Instance({ level: 1 });
 class TestError extends Error {
     constructor(message) {
         super(message);
+        console.log(message);
         Error.captureStackTrace(this, TestError);
     }
 }
@@ -12493,6 +12494,7 @@ exports.TestError = TestError;
 class TestTimeoutError extends TestError {
     constructor(message) {
         super(message);
+        console.log(message);
         Error.captureStackTrace(this, TestTimeoutError);
     }
 }
@@ -12501,7 +12503,7 @@ class TestOutputError extends TestError {
     expected;
     actual;
     constructor(message, expected, actual) {
-        super(`${message}\nExpected:\n${expected}\nActual:\n${actual}`);
+        super(`${message}\nExpected:\n${expected}\n\nActual:\n${actual}`);
         this.expected = expected;
         this.actual = actual;
         Error.captureStackTrace(this, TestOutputError);
