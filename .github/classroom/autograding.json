@@ -5,7 +5,7 @@
       "setup": "",
       "run": "echo ' id |   name   %0A----+----------%0A  1 | John%0A  2 | Michael%0A  3 | Benjamin%0A  4 | Nick%0A(4 rows)'",
       "input": "",
-      "output": " id |   name   \n----+----------\n  1 | John\n  2 | Michael\n  3 | Benjamin\n  4 | Nick\n(4 rows)",
+      "output": " id |   name   \n----+----------\n  1 | John\n  2 | Michael\n  3 | Ben\n  4 | Nick\n(4 rows)",
       "comparison": "exact",
       "timeout": 2,
       "points": 1
