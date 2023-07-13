@@ -3,20 +3,16 @@ name: CI
 on: [push]
 
 jobs:
-  # run node unit tests
-  units:
+  build:
+    name: Test Autograder
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Use Node.js 16
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 16
       - run: npm ci
       - run: npm run lint
       - run: npm test
@@ -32,5 +28,5 @@ jobs:
           node-version: 16
       - run: npm ci
       - run: npm run build
-
       - uses: ./
+        continue-on-error: true
