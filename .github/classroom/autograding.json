@@ -1,14 +1,14 @@
 {
   "tests": [
     {
-      "name": "Test 1",
+      "name": "0-example_query",
       "setup": "",
-      "run": "echo 'Test 1'",
+      "run": "print ' id |   name   %0A----+----------%0A  1 | John%0A  2 | Michael%0A  3 | Benjamin%0A  4 | Nick%0A(4 rows)'",
       "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": 5
+      "output": " id |   name   \n----+----------\n  1 | John\n  2 | Michael\n  3 | Benjamin\n  4 | Nick\n(4 rows)",
+      "comparison": "exact",
+      "timeout": 2,
+      "points": 1
     }
   ]
 }
