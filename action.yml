@@ -1,6 +1,6 @@
 name: Autograding
-description: "Autograding for GitHub Classroom"
-author: "@github"
+description: "Autograding for Code Platoon"
+author: "@AloofBuddha"
 inputs:
   token:
     description: >
