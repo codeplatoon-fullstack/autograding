@@ -24,6 +24,7 @@ export interface Test {
 export class TestError extends Error {
   constructor(message: string) {
     super(message)
+    console.log(message)
     Error.captureStackTrace(this, TestError)
   }
 }
@@ -40,10 +41,6 @@ export class TestOutputError extends TestError {
   actual: string
 
   constructor(message: string, expected: string, actual: string) {
-    expected = decodeURI(expected)
-    actual = decodeURI(actual)
-    console.log(actual)
-    console.log(expected)
     super(`${message}\nExpected:\n${expected}\nActual:\n${actual}`)
     this.expected = expected
     this.actual = actual
