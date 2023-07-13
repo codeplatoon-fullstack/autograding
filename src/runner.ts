@@ -161,11 +161,8 @@ const runCommand = async (test: Test, cwd: string, timeout: number): Promise<voi
     return
   }
 
-  const expected = normalizeLineEndings(test.output || '')
-  const actual = normalizeLineEndings(output)
-
-  log(`expected: ${decodeURI(expected)}`)
-  log(`actual: ${decodeURI(actual)}`)
+  const expected = decodeURI(normalizeLineEndings(test.output || ''))
+  const actual = decodeURI(normalizeLineEndings(output))
 
   switch (test.comparison) {
     case 'exact':
