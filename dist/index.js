@@ -83,18 +83,10 @@ class Command {
     }
 }
 function escapeData(s) {
-    return utils_1.toCommandValue(s)
-        .replace(/%/g, '%25')
-        .replace(/\r/g, '%0D')
-        .replace(/\n/g, '%0A');
+    return utils_1.toCommandValue(s);
 }
 function escapeProperty(s) {
-    return utils_1.toCommandValue(s)
-        .replace(/%/g, '%25')
-        .replace(/\r/g, '%0D')
-        .replace(/\n/g, '%0A')
-        .replace(/:/g, '%3A')
-        .replace(/,/g, '%2C');
+    return utils_1.toCommandValue(s);
 }
 //# sourceMappingURL=command.js.map
 
@@ -4775,10 +4767,8 @@ class RequestError extends Error {
     }
 
     requestCopy.url = requestCopy.url // client_id & client_secret can be passed as URL query parameters to increase rate limit
-    // see https://developer.github.com/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications
-    .replace(/\bclient_secret=\w+/g, "client_secret=[REDACTED]") // OAuth tokens can be passed as URL query parameters, although it is not recommended
-    // see https://developer.github.com/v3/#oauth2-token-sent-in-a-header
-    .replace(/\baccess_token=\w+/g, "access_token=[REDACTED]");
+    // see https://developer.github.com/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications // OAuth tokens can be passed as URL query parameters, although it is not recommended
+    // see https://developer.github.com/v3/#oauth2-token-sent-in-a-header;
     this.request = requestCopy; // deprecations
 
     Object.defineProperty(this, "code", {
@@ -8997,7 +8987,6 @@ var regexAstralSymbols = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
 function countSymbols(string) {
   return string
     // replace every surrogate pair with a BMP symbol
-    .replace(regexAstralSymbols, '_')
     // then get the length
     .length;
 }
@@ -12486,7 +12475,6 @@ const color = new chalk_1.default.Instance({ level: 1 });
 class TestError extends Error {
     constructor(message) {
         super(message);
-        console.log(message);
         Error.captureStackTrace(this, TestError);
     }
 }
