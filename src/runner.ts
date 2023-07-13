@@ -42,6 +42,8 @@ export class TestOutputError extends TestError {
   constructor(message: string, expected: string, actual: string) {
     expected = decodeURI(expected)
     actual = decodeURI(actual)
+    console.log(actual)
+    console.log(expected)
     super(`${message}\nExpected:\n${expected}\nActual:\n${actual}`)
     this.expected = expected
     this.actual = actual
