@@ -24,7 +24,6 @@ export interface Test {
 export class TestError extends Error {
   constructor(message: string) {
     super(message)
-    console.log(message)
     Error.captureStackTrace(this, TestError)
   }
 }
