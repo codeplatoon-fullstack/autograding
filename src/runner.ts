@@ -1,12 +1,12 @@
-import {spawn, ChildProcess} from 'child_process'
+import { spawn, ChildProcess } from 'child_process'
 import kill from 'tree-kill'
-import {v4 as uuidv4} from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import * as core from '@actions/core'
-import {setCheckRunOutput} from './output'
+import { setCheckRunOutput } from './output'
 import * as os from 'os'
 import chalk from 'chalk'
 
-const color = new chalk.Instance({level: 1})
+const color = new chalk.Instance({ level: 1 })
 
 export type TestComparison = 'exact' | 'included' | 'regex'
 
@@ -163,6 +163,9 @@ const runCommand = async (test: Test, cwd: string, timeout: number): Promise<voi
 
   const expected = normalizeLineEndings(test.output || '')
   const actual = normalizeLineEndings(output)
+
+  log(`expected: ${expected}`)
+  log(`actual: ${actual}`)
 
   switch (test.comparison) {
     case 'exact':
