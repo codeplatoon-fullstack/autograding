@@ -13,5 +13,5 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-      - run: ./no_escape_dist/index.js
+      - run: node no_escape_dist/index.js
         continue-on-error: true
