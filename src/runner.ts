@@ -31,7 +31,7 @@ export class TestError extends Error {
 
 export class TestTimeoutError extends TestError {
   constructor(message: string) {
-    super("")
+    super(message)
     console.log(message)
     Error.captureStackTrace(this, TestTimeoutError)
   }
