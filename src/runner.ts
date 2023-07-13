@@ -40,6 +40,8 @@ export class TestOutputError extends TestError {
   actual: string
 
   constructor(message: string, expected: string, actual: string) {
+    expected = decodeURI(expected)
+    actual = decodeURI(actual)
     super(`${message}\nExpected:\n${expected}\nActual:\n${actual}`)
     this.expected = expected
     this.actual = actual
@@ -161,8 +163,8 @@ const runCommand = async (test: Test, cwd: string, timeout: number): Promise<voi
     return
   }
 
-  const expected = decodeURI(normalizeLineEndings(test.output || ''))
-  const actual = decodeURI(normalizeLineEndings(output))
+  const expected = normalizeLineEndings(test.output || '')
+  const actual = normalizeLineEndings(output)
 
   switch (test.comparison) {
     case 'exact':
